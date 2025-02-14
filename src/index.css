@@ -1,0 +1,206 @@
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  margin: 0;
+}
+
+.calculator {
+  max-width: 400px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.7);
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.calculator:hover {
+  transform: scale(1.02);
+}
+
+.toggle {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.toggle:hover {
+  background: #444;
+}
+
+.undo-redo {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.undo-redo button {
+  flex: 1;
+  background: #ddd;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.undo-redo button:hover {
+  background: #ccc;
+}
+
+.display {
+  width: calc(100% - 20px); /* Ensure full width with some padding */
+  height: 60px; /* Match button height */
+  font-size: 28px; /* Large text */
+  text-align: right;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: black;
+  box-sizing: border-box;
+}
+
+.display-container {
+  grid-column: span 4; /* Ensures it spans across all columns */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Glow effect when typing */
+.display:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.5);
+}
+
+/* Smooth animation on result update */
+@keyframes resultChange {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.display.result {
+  animation: resultChange 0.2s ease-in-out;
+}
+
+/* Dark Mode */
+.dark-mode .display {
+  background: rgba(50, 50, 50, 0.5);
+  color: white;
+  backdrop-filter: blur(15px);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Make display box responsive */
+@media (max-width: 480px) {
+  .display {
+    height: 120px; /* Slightly smaller on small screens */
+    font-size: 40px;
+    padding: 20px;
+  }
+}
+
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.buttons button {
+  background: linear-gradient(145deg, #e0e0e0, #ffffff);
+  border: none;
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.buttons button:hover {
+  background: linear-gradient(145deg, #d0d0d0, #e8e8e8);
+  transform: scale(1.1);
+}
+
+.clear {
+  width: 100%;
+  background: #ff3b30;
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s ease-in-out;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clear:hover {
+  background: #e02a20;
+  transform: scale(1.05);
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #222;
+  color: white;
+}
+
+.dark-mode .calculator {
+  background: #333;
+  color: white;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2), -6px -6px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .display {
+  background: #444;
+  color: white;
+}
+
+.dark-mode .buttons button {
+  background: linear-gradient(145deg, #555, #666);
+  color: white;
+}
+
+.dark-mode .buttons button:hover {
+  background: #777;
+}
+
+.dark-mode .clear {
+  background: #ff3b30;
+}
+
+.dark-mode .clear:hover {
+  background: #e02a20;
+}
+
+.dark-mode .undo-redo button {
+  background: #666;
+  color: white;
+}
+
+.dark-mode .undo-redo button:hover {
+  background: #777;
+}
+
+.dark-mode .toggle {
+  background: #111;
+}
